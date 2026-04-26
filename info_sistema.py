@@ -13,9 +13,13 @@ def pegar_uso_disco(): #cria uma função que vai pegar a utilização do disco 
     return disco.percent #retorna pra mim a utilização em porcentagem
 
 def pegar_temp(): #vai pegar a temperatura
+
     temps = psutil.sensors_temperatures() #vai declarar a temperatura, para eu usar no if
 
     if temps:#! se temperatura existir, estiver dentro da variavel temps. ele vai me retornar a temperatura em graus e atual
         for name in temps:
             return temps[name][0].current
     return None 
+
+def pegar_uso_por_cores():
+    return psutil.cpu_percent(percpu=True)
